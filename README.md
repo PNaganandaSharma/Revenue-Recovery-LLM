@@ -102,6 +102,9 @@ The agent operates on a strict, compliant 4-phase state machine:
 ### Prerequisites
 - Node.js (v18+)
 - `GEMINI_API_KEY` (Required for the AI Diagnosis Engine)
+- **External Service Keys** (Optional, required for production channel execution):
+  - `STRIPE_API_KEY` / `RAZORPAY_API_KEY` (For live payment gateway retries & checks)
+  - `TWILIO_ACCOUNT_SID` & `TWILIO_AUTH_TOKEN` (For SMS and Voice AI dispatching)
 
 ### Installation
 
@@ -111,9 +114,17 @@ The agent operates on a strict, compliant 4-phase state machine:
    ```
 
 2. Configure Environment Variables:
-   Create a `.env` file in the root directory:
+   Copy the provided `.env.example` file to create a `.env` file in the root directory and populate your keys:
    ```env
+   # .env
+   PORT=3000
    GEMINI_API_KEY=your_google_gemini_api_key
+   
+   # Optional Execution Integrations
+   STRIPE_API_KEY=your_stripe_secret
+   RAZORPAY_API_KEY=your_razorpay_secret
+   TWILIO_ACCOUNT_SID=your_twilio_sid
+   TWILIO_AUTH_TOKEN=your_twilio_token
    ```
 
 3. Start the Development Server:
