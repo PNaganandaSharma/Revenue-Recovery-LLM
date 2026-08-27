@@ -1,0 +1,8 @@
+{
+  "name": "Revenue Recovery AI Agent",
+  "description": "Autonomous AI revenue recovery agent to detect, diagnose, execute, and measure payment recovery workflows with compliance safeguards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,50 +1,129 @@
-# Revenue Recovery AI Agent
+# AI-Driven Revenue Recovery Agent
 
-An autonomous AI agent designed to monitor, diagnose, and recover lost revenue across payment gateways, subscriptions, and checkouts. It actively moves beyond simply flagging issues to executing a bounded, compliant recovery workflow.
+An autonomous full-stack AI agent designed to monitor, diagnose, and recover lost revenue across payment gateways, subscriptions, and checkouts. It actively moves beyond simply flagging issues to executing a bounded, compliant recovery workflow powered by Gemini.
 
-## The 4 Phases of Recovery
+## ✨ Key Features
 
-1. **Detection & Ingestion:** Monitors data streams (payment gateways, checkouts) to identify risk events like abandonment or failure.
-2. **Diagnosis & Strategy:** Analyzes the root cause and selects the most effective intervention channel (e.g., smart retry, email/SMS, Hinglish voice call).
-3. **Execution & Recovery:** Executes the chosen workflow, tracks promises to pay, and schedules intelligent retries.
-4. **Compliance & Measurement:** Enforces strict stopping rules (max contacts, paid, opted out), maintains a robust audit trail, and calculates the total measured money recovered.
+- **Autonomous Pipeline:** End-to-end 4-phase workflow covering Detection, AI Diagnosis, Execution, and Compliance.
+- **Glassmorphism UI:** A sleek, modern dashboard utilizing dynamic multi-colored ambient backgrounds and frosted glass components.
+- **Visual Analytics:** Interactive Recharts-powered graphs visualizing recovery channel distributions and risk event types.
+- **Data Export:** 1-click CSV generation for both immutable audit logs and customer registries to support compliance and accounting.
+- **Real-Time Notifications:** Integrated toast alerts (Sonner) providing immediate feedback on webhook ingestion, simulation progress, and agent resets.
 
-## Getting Started
+## 🏗 System Architecture
+
+The application is built using a modern full-stack TypeScript architecture, utilizing React for the frontend and Express for the AI-powered backend. 
+
+```mermaid
+graph TD
+    subgraph Frontend [React Frontend]
+        UI[Dashboard UI]
+        WH[Webhook Trigger]
+    end
+
+    subgraph Backend [Express Backend]
+        API[API Routes]
+        
+        subgraph Pipeline [Autonomous Pipeline]
+            P1[1. Detection & Ingestion]
+            P2[2. AI Diagnosis]
+            P3[3. Execution Dispatch]
+            P4[4. Compliance Guard]
+        end
+        
+        Gemini([Google Gemini AI])
+        DB[(Audit Trail / Logs)]
+    end
+    
+    subgraph Channels [Recovery Channels]
+        R1[Silent Retry]
+        R2[Voice AI]
+        R3[Email Chaser]
+        R4[SMS Link]
+    end
+
+    UI <--> API
+    WH -->|Payload| API
+    
+    API --> P1
+    P1 --> P2
+    P2 <-->|Analyzes Context| Gemini
+    P2 -->|Selects Strategy| P3
+    P3 -->|Checks Rules| P4
+    P4 -->|Logs Action| DB
+    
+    P4 -->|If Compliant| Channels
+    Channels -.-> R1
+    Channels -.-> R2
+    Channels -.-> R3
+    Channels -.-> R4
+```
+
+### 1. Frontend (Client-Side)
+- **Framework:** React 18 + Vite + TypeScript.
+- **Styling:** Tailwind CSS, featuring a dynamic, multi-colored glassmorphism UI overlaying an ambient chromatic background.
+- **Components:** Modular, responsive dashboard components (`MetricsOverview`, `LiveExecutionFeed`, `CustomerRegistry`, `AuditTrail`).
+- **State Management:** React state manages the simulation of real-time data pipelines, webhook ingestion, and live execution traces.
+
+### 2. Backend (Server-Side)
+- **Framework:** Node.js with Express + TypeScript.
+- **AI Engine:** Google Gen AI SDK (`@google/genai`). The server utilizes Gemini models to act as the **Diagnosis Engine**. It analyzes incoming risk events (e.g., checkout abandonment, subscription failures) and dynamically determines the optimal recovery channel (Smart Retry, Voice Call, Email, or SMS) based on contextual clues.
+- **Security:** API keys and external service integrations are securely hidden server-side, with a robust REST API exposing capabilities to the client.
+- **Build System:** Uses `esbuild` to compile the backend into a standalone CommonJS bundle (`dist/server.cjs`) for lightweight, efficient containerized deployment alongside the Vite static assets.
+
+### 3. Core Pipeline Logic (The 4 Phases)
+The agent operates on a strict, compliant 4-phase state machine:
+1. **Detection & Ingestion:** Monitors data streams (via webhooks or internal pulses) for risk events.
+2. **Diagnosis & Strategy:** The Gemini AI agent analyzes the root cause, customer context, and region to select the most effective intervention channel.
+3. **Execution:** Triggers the chosen workflow (e.g., simulated payment gateway retries, regional voice AI, SMS sequences).
+4. **Compliance:** Enforces strict stopping rules (max contacts per day, opt-out protections, settled debt blocks) and maintains an immutable audit trail.
+
+## 📂 Project Structure
+
+```text
+├── src/
+│   ├── components/      # React UI Components (Header, Data Feeds, Modals)
+│   ├── App.tsx          # Main React Application & Layout
+│   ├── main.tsx         # Client Entry Point
+│   ├── server.ts        # Express Backend & Gemini Agent Integration
+│   ├── types.ts         # Shared TypeScript Interfaces (Events, Customers)
+│   ├── engine.ts        # Core Pipeline & Execution Logic
+│   └── index.css        # Tailwind CSS & Global Styles
+├── dist/                # Production Build Output (Client static files & server.cjs)
+├── package.json         # Dependencies & Build Scripts
+└── vite.config.ts       # Vite Configuration
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.9+
-- A virtual environment (recommended)
+- Node.js (v18+)
+- `GEMINI_API_KEY` (Required for the AI Diagnosis Engine)
 
 ### Installation
 
-1. Clone the repository:
+1. Install dependencies:
    ```bash
-   git clone https://github.com/your-org/revenue-recovery-agent.git
-   cd revenue-recovery-agent
+   npm install
    ```
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+2. Configure Environment Variables:
+   Create a `.env` file in the root directory:
+   ```env
+   GEMINI_API_KEY=your_google_gemini_api_key
    ```
 
-3. Configure Environment Variables:
+3. Start the Development Server:
    ```bash
-   cp .env.example .env
-   # Edit .env with your specific API keys
+   npm run dev
    ```
+   *The server runs locally, exposing both the frontend and the Express API on port 3000.*
 
-### Running the Demo
+### Production Build
 
-The repository includes a simulation script that demonstrates the end-to-end flow with a batch of failed transactions.
+To build the application for production (compiles both the React frontend and the Express backend):
 
 ```bash
-python run_demo.py
+npm run build
+npm start
 ```
-
-## Architecture
-
-* `src/models/` - Pydantic models representing events, customers, and actions.
-* `src/phases/` - Core logic for the 4 phases of the agent's workflow.
-* `src/main.py` - Orchestrator that ties the phases together.
-* `run_demo.py` - Demonstration script showing the system in action and calculating metrics.
