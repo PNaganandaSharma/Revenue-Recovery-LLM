@@ -1,4 +1,4 @@
-# Autonomous Agentic Commerce Engine
+# Revenue Recovery LLM
 
 An autonomous full-stack AI agent designed to monitor, diagnose, and recover lost revenue across payment gateways, subscriptions, and checkouts. It actively moves beyond simply flagging issues to executing a bounded, compliant recovery workflow powered by Gemini.
 

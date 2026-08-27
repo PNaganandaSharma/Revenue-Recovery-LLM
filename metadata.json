@@ -1,5 +1,5 @@
 {
-  "name": "Revenue Recovery AI Agent",
+  "name": "Revenue Recovery LLM",
   "description": "Autonomous AI revenue recovery agent to detect, diagnose, execute, and measure payment recovery workflows with compliance safeguards.",
   "requestFramePermissions": [],
   "majorCapabilities": [
