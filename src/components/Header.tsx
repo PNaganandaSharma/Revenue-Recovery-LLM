@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-sm font-semibold text-white tracking-tight">Revenue Recovery AI Agent</h1>
+              <h1 className="text-sm font-semibold text-white tracking-tight">Autonomous Agentic Commerce Engine</h1>
               <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] uppercase font-bold border transition-colors ${
                 isSimulating ? 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20' : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
               }`}>

@@ -1,4 +1,4 @@
-# AI-Driven Revenue Recovery Agent
+# Autonomous Agentic Commerce Engine
 
 An autonomous full-stack AI agent designed to monitor, diagnose, and recover lost revenue across payment gateways, subscriptions, and checkouts. It actively moves beyond simply flagging issues to executing a bounded, compliant recovery workflow powered by Gemini.
 
@@ -97,47 +97,40 @@ The agent operates on a strict, compliant 4-phase state machine:
 └── vite.config.ts       # Vite Configuration
 ```
 
-## 🚀 Getting Started
+## Quick Start
 
-### Prerequisites
-- Node.js (v18+)
-- `GEMINI_API_KEY` (Required for the AI Diagnosis Engine)
-- **External Service Keys** (Optional, required for production channel execution):
-  - `RAZORPAY_API_KEY` & `RAZORPAY_API_SECRET` (For live payment gateway retries & checks)
-  - `TWILIO_ACCOUNT_SID` & `TWILIO_AUTH_TOKEN` (For SMS and Voice AI dispatching)
+1. **Clone the repository:**
 
-### Installation
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
 
-1. Install dependencies:
+2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
-2. Configure Environment Variables:
-   Copy the provided `.env.example` file to create a `.env` file in the root directory and populate your keys:
-   ```env
-   # .env
-   PORT=3000
-   GEMINI_API_KEY=your_google_gemini_api_key
-   
-   # Optional Execution Integrations
-   STRIPE_API_KEY=your_stripe_secret
-   RAZORPAY_API_KEY=your_razorpay_secret
-   TWILIO_ACCOUNT_SID=your_twilio_sid
-   TWILIO_AUTH_TOKEN=your_twilio_token
+3. **Environment Setup:** Copy `.env.example` to `.env` and fill in your Razorpay test keys:
+
+   ```bash
+   cp .env.example .env
    ```
 
-3. Start the Development Server:
+4. **Start the backend server:**
+
    ```bash
    npm run dev
    ```
-   *The server runs locally, exposing both the frontend and the Express API on port 3000.*
 
-### Production Build
+   *(This starts the Express server on port 3000)*
 
-To build the application for production (compiles both the React frontend and the Express backend):
+5. **Run the autonomous agent:** Open `http://localhost:3000` in your browser. Use the **Agent Controls** panel to start either the Buyer or the Restocker agent.
 
-```bash
-npm run build
-npm start
-```
+## API Reference
+
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/api/webhook` | POST | Ingests a single webhook payload for AI processing |
+| `/api/simulate-batch` | POST | Executes a batched simulation pipeline |
