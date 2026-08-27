@@ -103,7 +103,7 @@ The agent operates on a strict, compliant 4-phase state machine:
 - Node.js (v18+)
 - `GEMINI_API_KEY` (Required for the AI Diagnosis Engine)
 - **External Service Keys** (Optional, required for production channel execution):
-  - `STRIPE_API_KEY` / `RAZORPAY_API_KEY` (For live payment gateway retries & checks)
+  - `RAZORPAY_API_KEY` & `RAZORPAY_API_SECRET` (For live payment gateway retries & checks)
   - `TWILIO_ACCOUNT_SID` & `TWILIO_AUTH_TOKEN` (For SMS and Voice AI dispatching)
 
 ### Installation

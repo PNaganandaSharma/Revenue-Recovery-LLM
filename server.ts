@@ -17,13 +17,13 @@ async function startServer() {
   });
 
   // Ingest single webhook event
-  app.post('/api/webhook', (req, res) => {
+  app.post('/api/webhook', async (req, res) => {
     try {
       const payload = req.body;
       if (!payload || typeof payload !== 'object') {
         return res.status(400).json({ error: 'Invalid webhook payload JSON' });
       }
-      const result = agent.processWebhook(payload);
+      const result = await agent.processWebhook(payload);
       res.json(result);
     } catch (err: any) {
       console.error('Webhook processing error:', err);
@@ -32,7 +32,7 @@ async function startServer() {
   });
 
   // Run end-to-end simulation matching run_demo.py
-  app.post('/api/simulate-batch', (req, res) => {
+  app.post('/api/simulate-batch', async (req, res) => {
     try {
       const results = [];
 
@@ -69,13 +69,13 @@ async function startServer() {
       };
 
       // Process first 3 events
-      const res1 = agent.processWebhook(payload_1);
+      const res1 = await agent.processWebhook(payload_1);
       results.push(res1);
 
-      const res2 = agent.processWebhook(payload_2);
+      const res2 = await agent.processWebhook(payload_2);
       results.push(res2);
 
-      const res3 = agent.processWebhook(payload_3);
+      const res3 = await agent.processWebhook(payload_3);
       results.push(res3);
 
       // Force Alice to have reached max contacts to demonstrate compliance block
@@ -92,11 +92,11 @@ async function startServer() {
         error_code: 'insufficient_funds',
         source: 'Stripe Billing'
       };
-      const res4 = agent.processWebhook(payload_4);
+      const res4 = await agent.processWebhook(payload_4);
       results.push(res4);
 
       // Event 5: Duplicate already recovered event
-      const res5 = agent.processWebhook(payload_1);
+      const res5 = await agent.processWebhook(payload_1);
       results.push(res5);
 
       res.json({
