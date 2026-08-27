@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {isSimulating ? 'Processing' : 'Active Guard'}
               </span>
             </div>
-            <p className="text-[11px] text-zinc-400 font-medium">Autonomous 4-Phase Detection, Diagnosis, Execution & Compliance</p>
+            <p className="text-[11px] text-zinc-400 font-medium">Autonomous Detection, Diagnosis, Execution & Compliance</p>
           </div>
         </div>
 
@@ -110,17 +110,6 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             Customer Guard
-          </button>
-          <button
-            id="tab-architecture-btn"
-            onClick={() => setActiveTab('architecture')}
-            className={`px-3 py-1.5 rounded-md transition-colors ${
-              activeTab === 'architecture'
-                ? 'bg-zinc-800 text-white shadow-sm'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800/50'
-            }`}
-          >
-            4 Phases
           </button>
         </div>
 

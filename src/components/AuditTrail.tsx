@@ -128,7 +128,7 @@ export const AuditTrail: React.FC<AuditTrailProps> = ({ logs }) => {
         <div>
           <h2 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>Phase 4: Compliance & Immutable Audit Trail</span>
+            <span>Compliance & Immutable Audit Trail</span>
             <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-950/50 text-zinc-300 border border-white/10 uppercase font-bold tracking-wider">
               {logs.length} Actions
             </span>

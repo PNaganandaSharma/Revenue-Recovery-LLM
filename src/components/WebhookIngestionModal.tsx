@@ -103,7 +103,7 @@ export const WebhookIngestionModal: React.FC<WebhookIngestionModalProps> = ({
             </div>
             <div>
               <h3 className="text-sm font-semibold text-white">Ingest Payment Webhook</h3>
-              <p className="text-xs text-slate-400">Trigger Phase 1 Detection & run autonomous recovery pipeline</p>
+              <p className="text-xs text-slate-400">Trigger Detection & run autonomous recovery pipeline</p>
             </div>
           </div>
           <button

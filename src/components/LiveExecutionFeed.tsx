@@ -185,9 +185,9 @@ export const LiveExecutionFeed: React.FC<LiveExecutionFeedProps> = ({
             </div>
           </div>
 
-          {/* 4 Phases Timeline Steps */}
+          {/* Timeline Steps */}
           <div className="my-4 space-y-3">
-            <h4 className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">4-Phase Execution Pipeline Trace</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">Execution Pipeline Trace</h4>
 
             <div className="space-y-2.5 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10">
               {activeResult.steps.map((step, idx) => {
@@ -198,7 +198,7 @@ export const LiveExecutionFeed: React.FC<LiveExecutionFeedProps> = ({
                       step.status === 'success' ? 'bg-emerald-950/60 text-emerald-400 border-emerald-800' :
                       'bg-zinc-900/60 text-zinc-300 border-white/10'
                     }`}>
-                      0{step.phase}
+                      <CheckCircle className="w-3 h-3" />
                     </div>
                     <div className="flex-1 bg-zinc-950/40 border border-white/5 rounded-lg p-2.5">
                       <div className="flex items-center justify-between">

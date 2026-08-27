@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Header } from './components/Header';
 import { MetricsOverview } from './components/MetricsOverview';
 import { AnalyticsCharts } from './components/AnalyticsCharts';
-import { PipelineVisualizer } from './components/PipelineVisualizer';
 import { LiveExecutionFeed } from './components/LiveExecutionFeed';
 import { CustomerRegistry } from './components/CustomerRegistry';
 import { AuditTrail } from './components/AuditTrail';
@@ -247,60 +246,6 @@ export function App() {
               </motion.div>
             )}
 
-            {activeTab === 'architecture' && (
-              <motion.div
-                key="architecture"
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                className="space-y-5"
-              >
-                <PipelineVisualizer />
-                
-                {/* Architectural Rule Breakdown */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="bg-zinc-900/30 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-2xl">
-                <h3 className="text-sm font-semibold text-white mb-2">Strategy Routing Matrix</h3>
-                <p className="text-xs text-zinc-400 mb-3">How the AI Diagnoser dynamically selects the right intervention based on failure mode and regional context:</p>
-                <div className="space-y-2 text-xs">
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-indigo-400">Subscription + Network Timeout:</strong> Smart silent retry via payment gateway without bothering the customer.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-amber-400">Checkout Abandonment (IN Region):</strong> Hinglish Voice AI outbound call with natural language conversation & promise-to-pay capture.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-blue-400">B2B Overdue Invoices:</strong> Automated formal email chaser with 1-click invoice payment link and audit logging.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-emerald-400">Insufficient Funds:</strong> SMS notification with instant card reload and alternate payment link.
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-zinc-900/30 backdrop-blur-xl border border-white/10 rounded-xl p-4 shadow-2xl">
-                <h3 className="text-sm font-semibold text-white mb-2">Compliance Stopping Rules</h3>
-                <p className="text-xs text-zinc-400 mb-3">Enforcing consumer protection, anti-harassment regulations, and eliminating duplicate contacts:</p>
-                <div className="space-y-2 text-xs">
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-rose-400">Max Contact Rule (3/day):</strong> Hard limit prevents contacting any customer more than 3 times in a single day.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-rose-400">Opt-Out Protection:</strong> If a customer opts out, all non-retry outreach channels are immediately blocked.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-rose-400">Settled Debt Protection:</strong> Once an event ID is marked paid/recovered, future triggers for that debt are rejected.
-                  </div>
-                  <div className="p-2.5 rounded-md bg-zinc-950/40 border border-white/5">
-                    <strong className="text-emerald-400">Silent Retry Exemption:</strong> Gateway retries do not count towards the customer contact fatigue counter.
-                  </div>
-                </div>
-              </div>
-            </div>
-              </motion.div>
-            )}
           </AnimatePresence>
         </motion.div>
       </main>

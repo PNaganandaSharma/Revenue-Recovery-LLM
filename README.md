@@ -4,7 +4,7 @@ An autonomous full-stack AI agent designed to monitor, diagnose, and recover los
 
 ## ✨ Key Features
 
-- **Autonomous Pipeline:** End-to-end 4-phase workflow covering Detection, AI Diagnosis, Execution, and Compliance.
+- **Autonomous Pipeline:** End-to-end workflow covering Detection, AI Diagnosis, Execution, and Compliance.
 - **Glassmorphism UI:** A sleek, modern dashboard utilizing dynamic multi-colored ambient backgrounds and frosted glass components.
 - **Fluid Bento-Grid Layout:** Incorporates spring physics and layout animations using Framer Motion (`motion/react`) for fluid, tactile tab switching and responsive resizing.
 - **Ambient AI Status Orb:** An interactive, glowing status indicator in the header that visually reacts to the agent's diagnostic processing state in real-time.
@@ -28,10 +28,10 @@ graph TD
         API[API Routes]
         
         subgraph Pipeline [Autonomous Pipeline]
-            P1[1. Detection & Ingestion]
-            P2[2. AI Diagnosis]
-            P3[3. Execution Dispatch]
-            P4[4. Compliance Guard]
+            P1[Detection & Ingestion]
+            P2[AI Diagnosis]
+            P3[Execution Dispatch]
+            P4[Compliance Guard]
         end
         
         Gemini([Google Gemini AI])
@@ -74,12 +74,12 @@ graph TD
 - **Security:** API keys and external service integrations are securely hidden server-side, with a robust REST API exposing capabilities to the client.
 - **Build System:** Uses `esbuild` to compile the backend into a standalone CommonJS bundle (`dist/server.cjs`) for lightweight, efficient containerized deployment alongside the Vite static assets.
 
-### 3. Core Pipeline Logic (The 4 Phases)
-The agent operates on a strict, compliant 4-phase state machine:
-1. **Detection & Ingestion:** Monitors data streams (via webhooks or internal pulses) for risk events.
-2. **Diagnosis & Strategy:** The Gemini AI agent analyzes the root cause, customer context, and region to select the most effective intervention channel.
-3. **Execution:** Triggers the chosen workflow (e.g., simulated payment gateway retries, regional voice AI, SMS sequences).
-4. **Compliance:** Enforces strict stopping rules (max contacts per day, opt-out protections, settled debt blocks) and maintains an immutable audit trail.
+### 3. Core Pipeline Logic
+The agent operates on a strict, compliant state machine:
+- **Detection & Ingestion:** Monitors data streams (via webhooks or internal pulses) for risk events.
+- **Diagnosis & Strategy:** The Gemini AI agent analyzes the root cause, customer context, and region to select the most effective intervention channel.
+- **Execution:** Triggers the chosen workflow (e.g., simulated payment gateway retries, regional voice AI, SMS sequences).
+- **Compliance:** Enforces strict stopping rules (max contacts per day, opt-out protections, settled debt blocks) and maintains an immutable audit trail.
 
 ## 📂 Project Structure
 
