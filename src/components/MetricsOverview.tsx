@@ -1,5 +1,5 @@
 import React from 'react';
-import { DollarSign, Activity, ShieldAlert, CheckCircle2, PhoneCall, Mail, MessageSquare, Repeat } from 'lucide-react';
+import { IndianRupee, Activity, ShieldAlert, CheckCircle2, PhoneCall, Mail, MessageSquare, Repeat } from 'lucide-react';
 import { RecoveryMetrics } from '../types';
 
 interface MetricsOverviewProps {
@@ -14,18 +14,13 @@ export const MetricsOverview: React.FC<MetricsOverviewProps> = ({ metrics }) => 
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">Measured Revenue Recovered</span>
           <div className="w-6 h-6 rounded flex items-center justify-center text-emerald-400">
-            <DollarSign className="w-4 h-4" />
+            <IndianRupee className="w-4 h-4" />
           </div>
         </div>
         <div className="mt-2 flex items-baseline gap-2">
           <div className="text-2xl font-bold text-emerald-400 tracking-tight">
-            ${metrics.total_recovered_usd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            ₹{metrics.total_recovered_inr.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </div>
-          {metrics.total_recovered_inr > 0 && (
-            <span className="text-xs text-zinc-500 font-medium">
-              (+₹{metrics.total_recovered_inr.toLocaleString('en-IN', { minimumFractionDigits: 0 })})
-            </span>
-          )}
         </div>
         <p className="text-[10px] text-zinc-500 mt-1">Verified settled recovery via smart retry & promises</p>
       </div>

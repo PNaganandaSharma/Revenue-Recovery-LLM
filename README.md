@@ -6,7 +6,10 @@ An autonomous full-stack AI agent designed to monitor, diagnose, and recover los
 
 - **Autonomous Pipeline:** End-to-end 4-phase workflow covering Detection, AI Diagnosis, Execution, and Compliance.
 - **Glassmorphism UI:** A sleek, modern dashboard utilizing dynamic multi-colored ambient backgrounds and frosted glass components.
+- **Fluid Bento-Grid Layout:** Incorporates spring physics and layout animations using Framer Motion (`motion/react`) for fluid, tactile tab switching and responsive resizing.
+- **Ambient AI Status Orb:** An interactive, glowing status indicator in the header that visually reacts to the agent's diagnostic processing state in real-time.
 - **Visual Analytics:** Interactive Recharts-powered graphs visualizing recovery channel distributions and risk event types.
+- **Localized Currency Engine:** Real-time financial calculations and metrics natively tracked and formatted in Indian Rupees (INR).
 - **Data Export:** 1-click CSV generation for both immutable audit logs and customer registries to support compliance and accounting.
 - **Real-Time Notifications:** Integrated toast alerts (Sonner) providing immediate feedback on webhook ingestion, simulation progress, and agent resets.
 

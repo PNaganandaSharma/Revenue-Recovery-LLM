@@ -233,7 +233,7 @@ export const AuditTrail: React.FC<AuditTrailProps> = ({ logs }) => {
                     {getStatusBadge(log.status)}
                   </td>
                   <td className="py-2.5 px-3 font-semibold text-zinc-200 whitespace-nowrap">
-                    {log.currency === 'INR' ? '₹' : '$'}{(log.amount || 0).toFixed(2)}
+                    ₹{(log.amount || 0).toFixed(2)}
                   </td>
                   <td className="py-2.5 px-3 text-zinc-400 max-w-xs truncate" title={log.notes}>
                     {log.notes || '—'}

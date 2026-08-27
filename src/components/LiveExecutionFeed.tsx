@@ -131,10 +131,9 @@ export const LiveExecutionFeed: React.FC<LiveExecutionFeedProps> = ({
                   </div>
                   <div className="text-right">
                     <span className="text-[13px] font-semibold text-zinc-100">
-                      {res.event.currency === 'INR' ? '₹' : '$'}
-                      {res.event.amount.toFixed(2)}
+                      ₹{res.event.amount.toFixed(2)}
                     </span>
-                    <span className="block text-[9px] font-bold text-zinc-500 uppercase">{res.event.currency}</span>
+                    <span className="block text-[9px] font-bold text-zinc-500 uppercase">INR</span>
                   </div>
                 </div>
 
@@ -170,8 +169,7 @@ export const LiveExecutionFeed: React.FC<LiveExecutionFeedProps> = ({
               <div className="px-2.5 py-1 rounded-md bg-zinc-950/40 border border-white/10 text-right">
                 <span className="text-[9px] font-bold text-zinc-500 uppercase block">At Risk</span>
                 <span className="text-[13px] font-bold text-emerald-400">
-                  {activeResult.event.currency === 'INR' ? '₹' : '$'}
-                  {activeResult.event.amount.toFixed(2)}
+                  ₹{activeResult.event.amount.toFixed(2)}
                 </span>
               </div>
               {!activeResult.recovered && onSettleEvent && (
@@ -241,7 +239,7 @@ export const LiveExecutionFeed: React.FC<LiveExecutionFeedProps> = ({
           <div className="text-right">
             <span className="text-[9px] font-bold uppercase text-zinc-500 block">Total Lifetime Recovered</span>
             <span className="font-bold text-emerald-400 text-[11px]">
-              ${activeResult.customer.total_paid.toFixed(2)}
+              ₹{activeResult.customer.total_paid.toFixed(2)}
             </span>
           </div>
         </div>

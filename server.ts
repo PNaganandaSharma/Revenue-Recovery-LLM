@@ -42,7 +42,7 @@ async function startServer() {
         customer_id: 'cust_alice',
         status: 'failed_recurring',
         amount: 49.99,
-        currency: 'USD',
+        currency: 'INR',
         error_code: 'network_timeout',
         source: 'Stripe Billing'
       };
@@ -64,7 +64,7 @@ async function startServer() {
         customer_id: 'cust_corp_x',
         status: 'overdue',
         amount: 5000.0,
-        currency: 'USD',
+        currency: 'INR',
         source: 'QuickBooks'
       };
 
@@ -88,7 +88,7 @@ async function startServer() {
         customer_id: 'cust_alice',
         status: 'failed_recurring',
         amount: 49.99,
-        currency: 'USD',
+        currency: 'INR',
         error_code: 'insufficient_funds',
         source: 'Stripe Billing'
       };

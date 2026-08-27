@@ -177,7 +177,7 @@ export const CustomerRegistry: React.FC<CustomerRegistryProps> = ({
 
               <div className="mt-2.5 pt-2 border-t border-white/5 flex items-center justify-between text-[11px]">
                 <span className="text-zinc-500 font-medium">Total Settled Recovery:</span>
-                <span className="font-bold text-emerald-400">${customer.total_paid.toFixed(2)}</span>
+                <span className="font-bold text-emerald-400">₹{customer.total_paid.toFixed(2)}</span>
               </div>
             </div>
           );
